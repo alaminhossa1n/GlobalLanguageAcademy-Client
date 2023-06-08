@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import { FaTrashAlt } from "react-icons/fa";
+import Swal from 'sweetalert2';
 
 const AllUser = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -11,23 +12,38 @@ const AllUser = () => {
     })
 
     const handleMakeAdmin = user => {
-        // fetch(`http://localhost:5000/users/admin/${user._id}`, {
-        //     method: 'PATCH'
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data)
-        //         if (data.modifiedCount) {
-        //             refetch();
-        //             Swal.fire({
-        //                 position: 'top-end',
-        //                 icon: 'success',
-        //                 title: `${user.name} is an Admin Now!`,
-        //                 showConfirmButton: false,
-        //                 timer: 1500
-        //             })
-        //         }
-        //     })
+        axiosSecure.patch(`/users/role/${user._id}`, { role: 'admin' })
+            .then(data => {
+                console.log(data.data);
+                if (data.data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
+    const handleMakeInstructor = user => {
+
+        axiosSecure.patch(`/users/role/${user._id}`, { role: 'instructor' })
+            .then(data => {
+                console.log(data.data);
+                if (data.data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Instructor Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
     const handleDelete = user => {
@@ -56,22 +72,23 @@ const AllUser = () => {
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>
-                                <p className='text-xl p-3 bg-green-400 rounded-lg text-center'>{user.role}</p>
+                                    <p className={`text-xl p-3 rounded-lg text-center ${user.role === 'admin' ? 'bg-red-500' : user.role === 'student' ? 'bg-blue-500' : user.role === 'instructor' ? 'bg-green-500' : ''}`}> {user.role}</p>
                                 </td>
                                 <td>
                                     <div className='flex flex-col gap-2'>
-                                      
-                                        {user.role === 'instructor' ?
-                                            <div className="badge badge-primary">
-                                                <p>Instructor</p>
-                                            </div> :
-                                            <button className='btn btn-success'>Make Admin</button>}
 
                                         {user.role === 'instructor' ?
-                                            <div className="badge badge-primary">
-                                                <p>Instructor</p>
-                                            </div> :
-                                            <button className='btn btn-warning'>Make Instructor</button>}
+                                            <button
+                                                onClick={() => handleMakeAdmin(user)} className='btn btn-success'>Make Admin
+                                            </button> :
+                                            user.role === 'admin' ?
+                                                <button
+                                                    onClick={() => handleMakeInstructor(user)} className='btn btn-warning'>Make Instructor
+                                                </button> :
+                                                <div className='flex flex-col gap-3'>
+                                                    <button onClick={() => handleMakeAdmin(user)} className='btn btn-success'>Make Admin</button>
+                                                    <button onClick={() => handleMakeInstructor(user)} className='btn btn-warning'>Make Instructor </button>
+                                                </div>}
                                     </div>
                                 </td>
                                 <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
