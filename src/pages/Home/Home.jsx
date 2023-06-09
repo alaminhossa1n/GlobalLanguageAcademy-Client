@@ -1,8 +1,21 @@
+import Banner from "./Banner";
+import PopularClass from "./PopularClass";
 
 const Home = () => {
     return (
         <div>
-            home
+            {/* banner section */}
+            <section>
+                <Banner></Banner>
+            </section>
+
+
+            {/* popular class section  */}
+
+
+            <section>
+                <PopularClass></PopularClass>
+            </section>
         </div>
     );
 };

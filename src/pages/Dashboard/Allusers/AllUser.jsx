@@ -61,6 +61,7 @@ const AllUser = () => {
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+                            <th>Email</th>
                             <th>Current Role</th>
                             <th>Change Role</th>
                             <th>Action</th>
@@ -71,6 +72,7 @@ const AllUser = () => {
                             users.map((user, index) => <tr key={user._id}>
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
+                                <td>{user.email}</td>
                                 <td>
                                     <p className={`text-xl p-3 rounded-lg text-center ${user.role === 'admin' ? 'bg-red-500' : user.role === 'student' ? 'bg-blue-500' : user.role === 'instructor' ? 'bg-green-500' : ''}`}> {user.role}</p>
                                 </td>

@@ -5,10 +5,14 @@ import SignUp from "../pages/Auth/SignUp/SignUp";
 import Login from "../pages/Auth/Login/Login";
 import Dashboard from "../Layout/Dashboard";
 import AllUser from "../pages/Dashboard/Allusers/AllUser";
-import AllClasses from "../pages/Dashboard/AllClasses/AllClasses";
 import AddClass from "../pages/Dashboard/AddClass/AddClass";
 import MyClass from "../pages/Dashboard/MyClass/MyClass";
 import SelectedClass from "../pages/Dashboard/SelectedClass/SelectedClass";
+import EnrolledClass from "../pages/Dashboard/EnrolledClass/EnrolledClass";
+import AllClasses from "../pages/AllClasses/AllClasses";
+import Instructors from "../pages/Instructors/Instructors";
+import Payment from "../pages/Dashboard/Payment/Payment";
+import PendingClass from "../pages/Dashboard/AllClasses/PendingClass";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +31,15 @@ const router = createBrowserRouter([
                 path: 'login',
                 element: <Login></Login>
             },
+            {
+                path: 'all-class',
+                element: <AllClasses></AllClasses>
+            },
+            {
+                path: 'instructors',
+                element: <Instructors></Instructors>
+            },
+
         ]
     },
     {
@@ -40,7 +53,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'manage-class',
-                element: <AllClasses></AllClasses>
+                element: <PendingClass></PendingClass>
             },
             // instructors 
             {
@@ -58,7 +71,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'enrolled-class',
-                element: <AllClasses></AllClasses>
+                element: <EnrolledClass></EnrolledClass>
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
             },
         ]
     }

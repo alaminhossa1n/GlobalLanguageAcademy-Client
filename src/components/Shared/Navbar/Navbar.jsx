@@ -1,17 +1,31 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
+import { FaShoppingCart } from 'react-icons/fa';
+import useCart from "../../../hooks/useCart";
+// import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
+    // const [role] = useAdmin();
+    const [cart] = useCart();
 
     const handleLogOut = () => {
         logOut();
     }
     const navOptions = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/menu">Our Menu</Link></li>
-        <li><Link to="/order/salad">Order Food</Link></li>
-        <li><Link to="/dashboard">Dash Board</Link></li>
+        <li><Link to="/instructors">Instructors</Link></li>
+        <li><Link to="/all-class">Classes</Link></li>
+        <li><Link to="/dashboard/manage-class">Dashboard</Link></li>
+        <li>
+            <Link to="/dashboard/selected-class">
+                <button className="btn gap-2">
+                    <FaShoppingCart></FaShoppingCart>
+                    <div className="badge badge-secondary">+{cart?.length || 0}</div>
+                </button>
+            </Link>
+        </li>
+
 
         {
             user ? <>
@@ -20,6 +34,7 @@ const Navbar = () => {
                 <li><Link to="/login">Login</Link></li>
             </>
         }
+
     </>
 
     return (

@@ -9,7 +9,7 @@ const useClass = () => {
             return res.json()
         }
     })
-    return [allClass, loading, refetch]
+    return [allClass, refetch, loading]
 }
 
 export default useClass;
