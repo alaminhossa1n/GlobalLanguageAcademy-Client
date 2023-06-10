@@ -9,7 +9,7 @@ const PendingClassCard = ({ singleClass }) => {
     const { availableSeats, className, image, instructorEmail, instructorName, price, status } = singleClass;
 
     const isApproved = status === 'approved' || status === 'denied';
-    
+
     const approvedClass = (id) => {
         console.log(id);
         axiosSecure.patch(`/approved-class/${id}`, { status: 'approved' })
@@ -31,14 +31,19 @@ const PendingClassCard = ({ singleClass }) => {
             showCancelButton: true,
             confirmButtonText: 'Look up',
             showLoaderOnConfirm: true,
-            preConfirm: (fieldValue) => {
-                return console.log(fieldValue);
+            preConfirm: () => {
+                return
             },
             allowOutsideClick: () => !Swal.isLoading()
         }).then((result) => {
             if (result.isConfirmed) {
                 //    if confirm 
-                console.log('confirmed');
+                axiosSecure.patch(`/approved-class/${id}`, { status: 'denied', feedback: result.value})
+                    .then(data => {
+                        if (data.data.modifiedCount) {
+                            refetch();
+                        }
+                    })
             }
         })
     }

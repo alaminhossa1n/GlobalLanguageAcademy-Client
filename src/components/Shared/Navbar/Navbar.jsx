@@ -17,14 +17,17 @@ const Navbar = () => {
         <li><Link to="/instructors">Instructors</Link></li>
         <li><Link to="/all-class">Classes</Link></li>
         <li><Link to="/dashboard/manage-class">Dashboard</Link></li>
-        <li>
-            <Link to="/dashboard/selected-class">
-                <button className="btn gap-2">
-                    <FaShoppingCart></FaShoppingCart>
-                    <div className="badge badge-secondary">+{cart?.length || 0}</div>
-                </button>
-            </Link>
-        </li>
+
+        {
+            user && <li>
+                <Link to="/dashboard/selected-class">
+                    <button className="btn gap-2">
+                        <FaShoppingCart></FaShoppingCart>
+                        <div className="badge badge-secondary">+{cart?.length || 0}</div>
+                    </button>
+                </Link>
+            </li>
+        }
 
 
         {

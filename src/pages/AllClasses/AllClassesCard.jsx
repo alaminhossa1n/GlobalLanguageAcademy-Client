@@ -14,7 +14,7 @@ const AllClassesCard = ({ oneClass }) => {
 
         if (user && user.email) {
             const cartItem = { menuItemId: _id, className, image, price, email: user.email }
-            fetch('http://localhost:5000/carts', {
+            fetch('https://global-language-academy-server.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

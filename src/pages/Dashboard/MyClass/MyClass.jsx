@@ -2,6 +2,7 @@ import useMyClass from "../../../hooks/useMyClass";
 
 const MyClass = () => {
     const [myClass] = useMyClass();
+    console.log(myClass);
 
     return (
         <div className="overflow-x-auto w-3/4 h-full">
@@ -24,7 +25,7 @@ const MyClass = () => {
                                 <th>{index + 1}</th>
                                 <th>{singleClass.status}</th>
                                 <th>{singleClass.enrolledStudents}</th>
-                                <th>{singleClass?.feedback}</th>
+                                <th>{singleClass.feedback}</th>
                                 <th><button className="btn">Update</button></th>
 
                             </tr>)
