@@ -6,7 +6,7 @@ const Instructors = () => {
     console.log(instructors);
 
     useEffect(() => {
-        fetch('https://global-language-academy-server.vercel.app/instructors')
+        fetch('http://localhost:5000/instructors')
             .then(res => res.json())
             .then(data => {
                 setInstructors(data)

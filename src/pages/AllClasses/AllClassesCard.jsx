@@ -6,15 +6,15 @@ const AllClassesCard = ({ oneClass }) => {
     const { user } = useAuth();
     const [, refetch] = useCart()
 
-    const { className, instructorName, availableSeats, price, role, image, _id, instructorEmail } = oneClass;
+    const { className, instructorName, availableSeats, price, role, image, _id } = oneClass;
 
     const isDisabled = availableSeats === 0 || role === 'admin' || role === 'instructor';
 
-    const handleSelect = (oneClass) => {
+    const handleSelect = () => {
 
         if (user && user.email) {
             const cartItem = { menuItemId: _id, className, image, price, email: user.email }
-            fetch('https://global-language-academy-server.vercel.app/carts', {
+            fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

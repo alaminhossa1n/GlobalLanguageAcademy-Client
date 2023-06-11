@@ -14,7 +14,6 @@ const Payment = () => {
     
     return (
         <div className="w-full">
-            payment
             <Elements stripe={stripePromise}>
                 <Checkout
                     cart={cart}
