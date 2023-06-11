@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import { FaShoppingCart } from 'react-icons/fa';
 import useCart from "../../../hooks/useCart";
 import useAdmin from "../../../hooks/useAdmin";
+import logo from '../../../assets/logo.png'
 
 const Navbar = () => {
     const { user, logOut } = useAuth();
@@ -59,8 +60,8 @@ const Navbar = () => {
                 </div>
                 <Link to='/' className="">
                     <div className="text-white font-bold flex gap-3 items-center">
-                        <img className='w-16' src='' alt="" />
-                        <p className="text-lg">Toy Universe</p>
+                        <img className='w-12' src={logo} alt="" />
+                        <p className="text-lg">Global Language Academy</p>
                     </div>
                 </Link>
             </div>

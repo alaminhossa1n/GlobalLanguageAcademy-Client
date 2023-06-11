@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
@@ -61,8 +61,8 @@ const Login = () => {
     }
 
     return (
-        <div className="flex justify-center items-center h-screen">
-            <div className="w-1/3 bg-gray-200 p-6 rounded shadow">
+        <div className="flex justify-center items-center h-screen bg-[#B25068]">
+            <div className="md:w-1/3 bg-[#E7AB79] p-6 rounded shadow">
                 <h2 className="text-2xl mb-4">Login</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="mb-4">
@@ -144,7 +144,7 @@ const Login = () => {
                         Login
                     </button>
                     <div className="mt-4">
-                        <p>Dont have an account? <a href="/signup" className="text-blue-500">Register</a></p>
+                        <p>Dont have an account? <Link to='/signup' className="text-blue-500">Register</Link></p>
                     </div>
 
                 </form>

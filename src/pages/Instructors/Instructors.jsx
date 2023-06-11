@@ -14,7 +14,7 @@ const Instructors = () => {
             })
     }, [])
     return (
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-3 gap-5 bg-[#B25068] py-28 h-full">
             {
                 instructors?.map(instructor => <InstructorCard
                     key={instructor._id}

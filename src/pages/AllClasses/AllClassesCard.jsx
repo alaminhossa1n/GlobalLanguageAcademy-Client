@@ -40,23 +40,15 @@ const AllClassesCard = ({ oneClass }) => {
     };
 
     return (
-        <div className={`bg-white shadow-lg rounded-lg p-4 ${availableSeats === 0 ? 'bg-red-200' : ''}`}>
+        <div className={`bg-[#774360] text-white shadow-lg rounded-lg p-4 ${availableSeats === 0 ? 'bg-red-200' : ''}`}>
             <img src={image} alt="Class" className="w-full h-40 object-cover mb-4 rounded-lg" />
             <h2 className="text-xl font-bold mb-2">{className}</h2>
-            <p className="text-gray-600 mb-2">Instructor: {instructorName}</p>
-            <p className="text-gray-600 mb-2">Available Seats: {availableSeats}</p>
-            <p className="text-gray-600 mb-2">Price: {price}</p>
-
-            {/* <button
-                className={`bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
-                disabled={isDisabled}
-                onClick={() => handleSelect(oneClass)}
-            >
-                {user ? 'Select' : 'Log In to Select'}
-            </button> */}
+            <p className="mb-2">Instructor: {instructorName}</p>
+            <p className="mb-2">Available Seats: {availableSeats}</p>
+            <p className="mb-2">Price: {price}</p>
             {user ? (
                 <button
-                    className={`bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`bg-[#E7AB79] hover:bg-[#B25068] text-white py-2 px-4 rounded ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
                     disabled={isDisabled}
                     onClick={() => handleSelect(oneClass)}
                 >
@@ -65,7 +57,7 @@ const AllClassesCard = ({ oneClass }) => {
             ) : (
                 <Link to='/login'>
                     <button
-                        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+                        className="bg-[#E7AB79] hover:bg-[#B25068] text-white py-2 px-4 rounded"
                     // onClick={handleLogin}
                     >
                         Log In to Select
