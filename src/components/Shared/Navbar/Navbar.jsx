@@ -13,13 +13,27 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut();
     }
+
+    let dashboardPath = '';
+    if (role === 'admin') {
+        dashboardPath = '/dashboard/manage-class'
+    }
+
+    if (role === 'instructor') {
+        dashboardPath = '/dashboard/add-class'
+    }
+    if (role === 'student') {
+        dashboardPath = '/dashboard/selected-class'
+    }
+
+
     const navItems = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructors">Instructors</Link></li>
         <li><Link to="/all-class">Classes</Link></li>
 
         {
-            user && <li><Link to="/dashboard/manage-class">Dashboard</Link></li>
+            user && <li><Link to={dashboardPath}>Dashboard</Link></li>
         }
 
         {
