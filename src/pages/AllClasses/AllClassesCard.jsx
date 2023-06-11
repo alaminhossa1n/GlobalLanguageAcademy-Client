@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import useCart from "../../hooks/useCart";
+import { Link } from "react-router-dom";
 
 const AllClassesCard = ({ oneClass }) => {
     const { user } = useAuth();
@@ -25,7 +26,7 @@ const AllClassesCard = ({ oneClass }) => {
                 .then(data => {
                     if (data.insertedId) {
                         console.log(data);
-                        refetch(); 
+                        refetch();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
@@ -46,13 +47,32 @@ const AllClassesCard = ({ oneClass }) => {
             <p className="text-gray-600 mb-2">Available Seats: {availableSeats}</p>
             <p className="text-gray-600 mb-2">Price: {price}</p>
 
-            <button
+            {/* <button
                 className={`bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
                 disabled={isDisabled}
                 onClick={() => handleSelect(oneClass)}
             >
                 {user ? 'Select' : 'Log In to Select'}
-            </button>
+            </button> */}
+            {user ? (
+                <button
+                    className={`bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    disabled={isDisabled}
+                    onClick={() => handleSelect(oneClass)}
+                >
+                    Select
+                </button>
+            ) : (
+                <Link to='/login'>
+                    <button
+                        className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+                    // onClick={handleLogin}
+                    >
+                        Log In to Select
+                    </button>
+                </Link>
+            )}
+
         </div>
     );
 };

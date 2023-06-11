@@ -1,21 +1,17 @@
-import Banner from "./Banner";
+
+import Banner from "./Banner/Banner";
 import PopularClass from "./PopularClass";
 
 const Home = () => {
     return (
-        <div>
-            {/* banner section */}
-            <section>
+        <div className="bg-[#B25068]">
                 <Banner></Banner>
-            </section>
-
-
-            {/* popular class section  */}
-
-
-            <section>
-                <PopularClass></PopularClass>
-            </section>
+            <div className="container mx-auto">
+                {/* popular class section  */}
+                <section>
+                    <PopularClass></PopularClass>
+                </section>
+            </div>
         </div>
     );
 };

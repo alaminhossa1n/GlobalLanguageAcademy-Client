@@ -6,7 +6,7 @@ const PopularClass = () => {
 
     return (
         <div>
-            <h2 className="text-3xl text-center">Popular Class</h2>
+            <h2 className="text-5xl font-bold text-white text-center py-10">Popular Class</h2>
             <div className="grid grid-cols-3 gap-5">
                 {
                     approvedClasses.map(singleClass => <PopularClassCard
