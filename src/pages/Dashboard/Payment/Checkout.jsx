@@ -84,7 +84,13 @@ const Checkout = ({ price, cart }) => {
                 .then(res => {
                     // console.log(res.data);
                     if (res.data.result.acknowledged) {
-                        Swal.fire('okay')
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Payment Successful!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
                     }
                 })
 

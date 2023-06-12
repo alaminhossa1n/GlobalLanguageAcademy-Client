@@ -1,7 +1,8 @@
-import Swal from "sweetalert2";
+
 import useAuth from "../../hooks/useAuth";
 import useCart from "../../hooks/useCart";
 import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const AllClassesCard = ({ oneClass }) => {
     const { user } = useAuth();
@@ -27,13 +28,7 @@ const AllClassesCard = ({ oneClass }) => {
                     if (data.insertedId) {
                         console.log(data);
                         refetch();
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Food added on the cart.',
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
+                        toast.success('Class Selected!')
                     }
                 })
         }
