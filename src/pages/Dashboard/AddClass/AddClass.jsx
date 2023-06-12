@@ -13,7 +13,7 @@ const AddClass = () => {
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${image_Upload_token}`
 
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
         const { availableSeats, className, instructorEmail, instructorName, price, status } = data;
 
         const formData = new FormData();
@@ -24,14 +24,12 @@ const AddClass = () => {
         })
             .then(res => res.json())
             .then(imgResponse => {
-                console.log(imgResponse);
+                // console.log(imgResponse);
                 if (imgResponse.success) {
                     const imgURL = imgResponse.data.display_url;
                     const newItem = { instructorName, instructorEmail, price: parseFloat(price), className, availableSeats: parseInt(availableSeats), enrolledStudents: parseInt(0), image: imgURL, status }
-                    console.log('form 64', newItem)
                     axiosSecure.post('/class', newItem)
                         .then(data => {
-                            console.log('after posting new menu item', data.data)
                             if (data.data.insertedId) {
                                 reset();
                                 Swal.fire({

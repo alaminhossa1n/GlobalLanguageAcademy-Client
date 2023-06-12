@@ -5,7 +5,6 @@ import { useState } from "react";
 const EnrolledClass = () => {
     const { user } = useAuth();
     const [enrolled, setEnrolled] = useState([]);
-    console.log(enrolled);
 
     useEffect(() => {
         fetch(`https://global-language-academy-server.vercel.app/enrolled?email=${user?.email}`)
