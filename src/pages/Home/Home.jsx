@@ -3,6 +3,7 @@ import Banner from "./Banner/Banner";
 import PopularClass from "./PopularClass";
 
 const Home = () => {
+    
     return (
         <div className="bg-[#B25068]">
                 <Banner></Banner>

@@ -51,7 +51,7 @@ const Login = () => {
                 })
                 const loggedInUser = result.user;
                 // console.log(loggedInUser);
-                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email, role: 'student' }
+                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email, role: 'student', image: loggedInUser.photoURL }
                 axiosSecure.post('/users', saveUser)
                     .then(data => {
                         console.log(data.data);

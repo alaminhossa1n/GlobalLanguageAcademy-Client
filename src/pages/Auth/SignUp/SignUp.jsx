@@ -25,7 +25,7 @@ const SignUp = () => {
 
                 updateUserProfile(data.name, data.photoUrl)
                     .then(() => {
-                        const saveUser = { name: data.name, email: data.email, role: 'student' }
+                        const saveUser = { name: data.name, email: data.email, role: 'student', image: data.photoUrl }
                         axiosSecure.post('/users', saveUser)
                             .then(data => {
                                 console.log(data);

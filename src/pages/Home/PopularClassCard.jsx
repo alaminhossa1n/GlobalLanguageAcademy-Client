@@ -1,6 +1,6 @@
 
 const PopularClassCard = ({ singleClass }) => {
-    const { availableSeats, className, image, instructorEmail, instructorName, price } = singleClass;
+    const { availableSeats, className, image, instructorEmail, instructorName, price, enrolledStudents } = singleClass;
 
     return (
         <div className="shadow-lg rounded-lg p-4 bg-[#774360] text-white">
@@ -9,6 +9,7 @@ const PopularClassCard = ({ singleClass }) => {
             <p className="mb-2">Instructor: {instructorName}</p>
             <p className="mb-2">Instructor Email: {instructorEmail}</p>
             <p className="mb-2">Available Seats: {availableSeats}</p>
+            <p className="mb-2">Enrolled Students: {enrolledStudents}</p>
             <p className="mb-2">Price: {price}</p>
         </div>
     );
