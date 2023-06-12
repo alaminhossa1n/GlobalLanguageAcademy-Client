@@ -13,6 +13,8 @@ import AllClasses from "../pages/AllClasses/AllClasses";
 import Instructors from "../pages/Instructors/Instructors";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PendingClass from "../pages/Dashboard/AllClasses/PendingClass";
+import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
     {
@@ -49,29 +51,29 @@ const router = createBrowserRouter([
             // admin 
             {
                 path: 'manage-users',
-                element: <AllUser></AllUser>
+                element: <AdminRoute><AllUser></AllUser></AdminRoute>
             },
             {
                 path: 'manage-class',
-                element: <PendingClass></PendingClass>
+                element: <AdminRoute><PendingClass></PendingClass></AdminRoute>
             },
             // instructors 
             {
                 path: 'add-class',
-                element: <AddClass></AddClass>
+                element: <PrivateRoute><AddClass></AddClass></PrivateRoute>
             },
             {
                 path: 'my-class',
-                element: <MyClass></MyClass>
+                element: <PrivateRoute><MyClass></MyClass></PrivateRoute>
             },
             // student 
             {
                 path: 'selected-class',
-                element: <SelectedClass></SelectedClass>
+                element: <PrivateRoute><SelectedClass></SelectedClass></PrivateRoute>
             },
             {
                 path: 'enrolled-class',
-                element: <EnrolledClass></EnrolledClass>
+                element: <PrivateRoute><EnrolledClass></EnrolledClass></PrivateRoute>
             },
             {
                 path: 'payment',
