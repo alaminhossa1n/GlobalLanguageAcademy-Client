@@ -65,7 +65,7 @@ const Checkout = ({ price, cart }) => {
         if (confirmError) {
             console.log(confirmError);
         }
-        console.log('payment intent', paymentIntent.id);
+        // console.log('payment intent', paymentIntent.id);
         // setTrxID(paymentIntent?.id);
 
         if (paymentIntent.status === "succeeded") {
@@ -82,7 +82,7 @@ const Checkout = ({ price, cart }) => {
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     if (res.data.result.acknowledged) {
                         Swal.fire('okay')
                     }

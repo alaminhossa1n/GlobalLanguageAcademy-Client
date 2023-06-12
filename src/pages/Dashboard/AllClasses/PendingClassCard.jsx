@@ -20,7 +20,6 @@ const PendingClassCard = ({ singleClass }) => {
     }
 
     const handleDeny = (id) => {
-        console.log(id);
         Swal.fire({
             title: 'Submit your Github username',
             input: 'text',

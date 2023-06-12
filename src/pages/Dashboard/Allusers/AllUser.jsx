@@ -14,7 +14,6 @@ const AllUser = () => {
     const handleMakeAdmin = user => {
         axiosSecure.patch(`/users/role/${user._id}`, { role: 'admin' })
             .then(data => {
-                console.log(data.data);
                 if (data.data.modifiedCount) {
                     refetch();
                     Swal.fire({
@@ -32,7 +31,6 @@ const AllUser = () => {
 
         axiosSecure.patch(`/users/role/${user._id}`, { role: 'instructor' })
             .then(data => {
-                console.log(data.data);
                 if (data.data.modifiedCount) {
                     refetch();
                     Swal.fire({
