@@ -3,7 +3,6 @@ import InstructorCard from "./InstructorCard";
 
 const Instructors = () => {
     const [instructors, setInstructors] = useState();
-    console.log(instructors);
 
     useEffect(() => {
         fetch('http://localhost:5000/instructors')
