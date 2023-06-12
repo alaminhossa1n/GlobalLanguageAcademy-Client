@@ -15,15 +15,18 @@ const Navbar = () => {
     }
 
     let dashboardPath = '';
-    if (role === 'admin') {
-        dashboardPath = '/dashboard/manage-class'
-    }
 
-    if (role === 'instructor') {
-        dashboardPath = '/dashboard/add-class'
-    }
-    if (role === 'student') {
-        dashboardPath = '/dashboard/selected-class'
+    if (role) {
+        if (role === 'admin') {
+            dashboardPath = '/dashboard/manage-class'
+        }
+
+        if (role === 'instructor') {
+            dashboardPath = '/dashboard/add-class'
+        }
+        if (role === 'student') {
+            dashboardPath = '/dashboard/selected-class'
+        }
     }
 
 
