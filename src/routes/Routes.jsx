@@ -15,6 +15,8 @@ import Payment from "../pages/Dashboard/Payment/Payment";
 import PendingClass from "../pages/Dashboard/AllClasses/PendingClass";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import StudentRoute from "./StudentRoute";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 
 const router = createBrowserRouter([
     {
@@ -69,11 +71,15 @@ const router = createBrowserRouter([
             // student 
             {
                 path: 'selected-class',
-                element: <PrivateRoute><SelectedClass></SelectedClass></PrivateRoute>
+                element: <StudentRoute><SelectedClass></SelectedClass></StudentRoute>
             },
             {
                 path: 'enrolled-class',
-                element: <PrivateRoute><EnrolledClass></EnrolledClass></PrivateRoute>
+                element: <StudentRoute><EnrolledClass></EnrolledClass></StudentRoute>
+            },
+            {
+                path: 'payment-history',
+                element: <StudentRoute><PaymentHistory></PaymentHistory></StudentRoute>
             },
             {
                 path: 'payment',

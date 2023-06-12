@@ -1,4 +1,5 @@
 
+import { Bounce } from "react-awesome-reveal";
 import Banner from "./Banner/Banner";
 import PopularInstructors from "./Banner/PopularInstructors/PopularInstructors";
 import PopularClass from "./PopularClass";
@@ -16,10 +17,10 @@ const Home = () => {
                 <section>
                     <PopularInstructors></PopularInstructors>
                 </section>
-                
+
                 <section className="bg-[#B25068] py-16">
                     <div className="container mx-auto">
-                        <h2 className="text-4xl font-bold text-white text-center mb-8">Benefits of Learning Global Languages</h2>
+                        <Bounce><h2 className="text-4xl font-bold text-white text-center mb-8">Benefits of Learning Global Languages</h2></Bounce>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             <div className="bg-[#774360] rounded-lg p-8 text-white">
                                 <h3 className="text-2xl font-bold mb-4">Cultural Understanding</h3>

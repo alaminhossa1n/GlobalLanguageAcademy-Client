@@ -24,6 +24,7 @@ const Dashboard = () => {
                         <>
                             <li><NavLink to="/dashboard/selected-class"><FaHome></FaHome> My Selected Classes</NavLink></li>
                             <li><NavLink to="/dashboard/enrolled-class"><FaHome></FaHome> My Enrolled Classes</NavLink></li>
+                            <li><NavLink to="/dashboard/payment-history"><FaHome></FaHome> Payment History</NavLink></li>
                         </>
                     )}
 

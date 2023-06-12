@@ -13,7 +13,6 @@ const Checkout = ({ price, cart }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [clientSecret, setClientSecret] = useState();
-    const [trxID, setTrxID] = useState();
 
     const { user } = useAuth();
 
@@ -66,14 +65,13 @@ const Checkout = ({ price, cart }) => {
         if (confirmError) {
             console.log(confirmError);
         }
-        console.log('payment intent', paymentIntent);
-
+        console.log('payment intent', paymentIntent.id);
+        // setTrxID(paymentIntent?.id);
 
         if (paymentIntent.status === "succeeded") {
-            setTrxID(paymentIntent.id);
             const payment = {
                 email: user?.email,
-                trxID,
+                trxID: paymentIntent.id,
                 price,
                 date: new Date(),
                 quantity: cart.length,

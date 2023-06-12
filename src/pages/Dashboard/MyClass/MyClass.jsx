@@ -2,7 +2,7 @@ import useMyClass from "../../../hooks/useMyClass";
 
 const MyClass = () => {
     const [myClass] = useMyClass();
-    console.log(myClass);
+    // console.log(myClass) 
 
     return (
         <div className="overflow-x-auto w-3/4 h-full">

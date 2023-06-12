@@ -1,8 +1,9 @@
-import { useEffect } from "react";
-import useAuth from "../../../hooks/useAuth";
 import { useState } from "react";
+import useAuth from "../../../hooks/useAuth";
+import { useEffect } from "react";
 
-const EnrolledClass = () => {
+const PaymentHistory = () => {
+
     const { user } = useAuth();
     const [enrolled, setEnrolled] = useState([]);
     console.log(enrolled);
@@ -28,7 +29,6 @@ const EnrolledClass = () => {
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Photo</th>
                             <th>Item Name</th>
                             <th>Price</th>
                         </tr>
@@ -63,4 +63,4 @@ const EnrolledClass = () => {
     );
 };
 
-export default EnrolledClass;
+export default PaymentHistory;

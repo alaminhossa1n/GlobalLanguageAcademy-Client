@@ -6,6 +6,13 @@ import router from './routes/Routes.jsx'
 import AuthProvider from './Providers/AuthProvider'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
+// AOS
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
+// AOS
+
 
 const queryClient = new QueryClient();
 
