@@ -11,7 +11,6 @@ const PendingClassCard = ({ singleClass }) => {
     const isApproved = status === 'approved' || status === 'denied';
 
     const approvedClass = (id) => {
-        console.log(id);
         axiosSecure.patch(`/approved-class/${id}`, { status: 'approved' })
             .then(data => {
                 if (data.data.modifiedCount) {
