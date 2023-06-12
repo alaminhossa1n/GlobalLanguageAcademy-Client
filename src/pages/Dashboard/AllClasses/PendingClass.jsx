@@ -9,7 +9,7 @@ const PendingClass = () => {
     return (
         <div>
             <h3 className="text-3xl font-semibold my-4 gap-5">All Classes {allClasses.length}</h3>
-            <div className="grid grid-cols-3 gap-5">
+            <div className="sm:grid-cols-1 grid-cols-3 gap-5">
                 {
                     allClasses.map(singleClass => <PendingClassCard
                         key={singleClass._id}

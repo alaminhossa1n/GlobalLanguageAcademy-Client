@@ -4,7 +4,7 @@ import useClass from "../../../hooks/useClass";
 
 const PendingClassCard = ({ singleClass }) => {
     const [axiosSecure] = useAxiosSecure();
-    const [, refetch] = useClass();
+    const [, , refetch] = useClass();
 
     const { availableSeats, className, image, instructorEmail, instructorName, price, status } = singleClass;
 
@@ -13,8 +13,9 @@ const PendingClassCard = ({ singleClass }) => {
     const approvedClass = (id) => {
         axiosSecure.patch(`/approved-class/${id}`, { status: 'approved' })
             .then(data => {
+                console.log(data.data);
                 if (data.data.modifiedCount) {
-                    refetch()
+                    refetch();
                 }
             })
     }
@@ -36,7 +37,7 @@ const PendingClassCard = ({ singleClass }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 //    if confirm 
-                axiosSecure.patch(`/approved-class/${id}`, { status: 'denied', feedback: result.value})
+                axiosSecure.patch(`/approved-class/${id}`, { status: 'denied', feedback: result.value })
                     .then(data => {
                         if (data.data.modifiedCount) {
                             refetch();
